@@ -1,0 +1,47 @@
+{
+  "author": {
+    "email": "gajus@gajus.com",
+    "name": "Gajus Kuizinas",
+    "url": "http://gajus.com"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ]
+  },
+  "dependencies": {},
+  "description": "A regex for validating URLs.",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "ava": "^1.0.0-beta.4",
+    "eslint": "^4.19.1",
+    "eslint-config-canonical": "^9.3.2",
+    "flow-bin": "^0.71.0",
+    "flow-copy-source": "^1.3.0",
+    "husky": "^0.14.3"
+  },
+  "engines": {
+    "node": ">=8.0"
+  },
+  "keywords": [
+    "regex",
+    "url"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "./dist/index.js",
+  "name": "@regex/url",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gajus/url-regex"
+  },
+  "scripts": {
+    "build": "rm -fr ./dist && NODE_ENV=production babel ./src --out-dir ./dist --copy-files --source-maps && flow-copy-source src dist",
+    "lint": "eslint ./src ./test && flow",
+    "precommit": "npm run lint && npm run test",
+    "test": "ava --verbose --serial --concurrency 1"
+  },
+  "version": "1.0.0"
+}

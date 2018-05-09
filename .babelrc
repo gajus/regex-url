@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    "babel-plugin-transform-flow-strip-types"
+  ],
+  "presets": [
+    [
+      "babel-preset-env",
+      {
+        "targets": {
+          "node": "8.0"
+        },
+        "useBuiltIns": "usage"
+      }
+    ]
+  ]
+}
