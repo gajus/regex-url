@@ -87,16 +87,18 @@ const invalidUrls = [
   'http://10.1.1.254'
 ];
 
-test('validates URLs', (t) => {
-  for (const validUrl of validUrls) {
-    const rule = createUrlRegex();
+for (const validUrl of validUrls) {
+  const rule = createUrlRegex();
 
-    t.true(rule.test(validUrl), validUrl);
-  }
+  test('validates URL (valid): ' + validUrl, (t) => {
+    t.true(rule.test(validUrl));
+  });
+}
 
-  for (const invalidUrl of invalidUrls) {
-    const rule = createUrlRegex();
+for (const invalidUrl of invalidUrls) {
+  const rule = createUrlRegex();
 
-    t.true(rule.test(invalidUrl) === false, invalidUrl);
-  }
-});
+  test('validates URL (invalid): ' + invalidUrl, (t) => {
+    t.true(rule.test(invalidUrl) === false);
+  });
+}
